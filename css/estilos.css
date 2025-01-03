@@ -1,0 +1,147 @@
+/* Variables de colores */
+:root {
+  --gris: #aaa;
+  --rojo: #e93d50;
+  --rojo-oscuro: #af303f;
+  --blanco: #fff;
+  --luz: rgb(229, 255, 0);
+  --azul-claro: #91e7d9;
+  --azul-oscuro: #5a5bf3;
+}
+
+/* Estilos generales del body */
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  background: linear-gradient(to right, var(--azul-oscuro) 0%, var(--azul-claro) 100%);
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Estilos para el título dentro del encabezado */
+.titulo {
+  text-align: center;
+  margin-top: 2rem; /* Espacio superior */
+  margin-bottom: 2rem; /* Espacio debajo del título */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  padding: 1rem;
+  background: linear-gradient(to bottom, #ffffff 0%, #cccccc 100%);
+  box-shadow: 6px 6px 0 6px #666, 10px 10px 10px #000;
+  border-radius: 1rem; /* Bordes redondeados */
+}
+
+.titulo h1 {
+  font-size: 3rem; /* Tamaño grande para el título */
+  font-weight: 600;
+  color: var(--rojo);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra para dar profundidad */
+  margin-bottom: 1rem;
+}
+
+.titulo ul {
+  list-style: none; /* Quitar los puntos de la lista */
+  padding: 0; /* Quitar padding */
+}
+
+.titulo ul li p {
+  font-size: 1.2rem;
+  color: var(--rojo);
+  margin: 0;
+}
+
+/* Estilos para el teclado */
+.teclado {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background: linear-gradient(to bottom, #ffffff 0%, #cccccc 100%);
+  box-shadow: 6px 8px 0 6px #666, 10px 10px 10px #000;
+  border-radius: 1.5rem;
+}
+
+/* Estilos para cada tecla */
+.tecla {
+  background-color: var(--blanco);
+  border-radius: 30px;
+  box-shadow: 3px 3px 0 var(--gris);
+  color: var(--rojo);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  height: 6rem;
+  width: 6rem;
+  transition: transform 0.2s, box-shadow 0.2s; /* Transiciones suaves */
+}
+
+/* Efecto de hover para las teclas */
+.tecla:hover {
+  transform: scale(1.05); /* Animación sutil al pasar el mouse */
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos para la tecla activa o cuando tiene la clase 'activa' */
+.tecla:active,
+.tecla.activa {
+  background-color: var(--rojo);
+  border: 0.25rem solid var(--rojo);
+  box-shadow: inset 0 0.25rem 0.5rem rgba(0, 0, 0, 0.3);
+  color: var(--blanco);
+}
+
+/* Estilos cuando la tecla tiene el foco */
+.tecla:focus {
+  outline: none; /* Eliminar el borde por defecto del foco */
+  box-shadow: 0 0 0.5rem var(--luz), 0 0 1.5rem rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos cuando la tecla activa tiene el foco */
+.tecla:active:focus,
+.tecla.activa:focus {
+  box-shadow: inset 0 0.25rem 0.5rem rgba(0, 0, 0, 0.3), 0 0 0.5rem var(--luz);
+}
+
+/* Media Queries para pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+  .titulo h1 {
+    font-size: 2.5rem; /* Reducir el tamaño del título en pantallas pequeñas */
+  }
+
+  .titulo ul li p {
+    font-size: 1rem; /* Ajustar tamaño de texto */
+  }
+
+  .teclado {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .tecla {
+    font-size: 1.2rem; /* Reducir el tamaño de las teclas */
+    height: 5rem; /* Reducir el tamaño de las teclas */
+    width: 5rem; /* Reducir el tamaño de las teclas */
+  }
+}
+
+/* Media Queries para pantallas más pequeñas (móviles) */
+@media (max-width: 480px) {
+  .titulo h1 {
+    font-size: 2rem; /* Reducir aún más el tamaño del título */
+  }
+
+  .teclado {
+    grid-template-columns: repeat(3, 1fr); /* Mantener el número de columnas */
+  }
+
+  .tecla {
+    font-size: 1rem; /* Reducir el tamaño de las teclas */
+    height: 4rem; /* Reducir aún más el tamaño de las teclas */
+    width: 4rem; /* Reducir aún más el tamaño de las teclas */
+  }
+}
