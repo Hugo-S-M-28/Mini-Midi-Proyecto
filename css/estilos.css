@@ -1,4 +1,4 @@
-/* Variables de colores */
+/* Variables de colores reutilizables en toda la interfaz. */
 :root {
   --gris: #aaa;
   --rojo: #e93d50;
@@ -9,7 +9,7 @@
   --azul-oscuro: #5a5bf3;
 }
 
-/* Estilos generales del body */
+/* El body centra la aplicación en pantalla y define la fuente general. */
 body {
   display: flex;
   flex-direction: column;
@@ -21,30 +21,30 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
-/* Estilos para el título dentro del encabezado */
+/* Contenedor del título y del texto breve de instrucciones. */
 .titulo {
-  text-align: center;
-  margin-top: 2rem; /* Espacio superior */
-  margin-bottom: 2rem; /* Espacio debajo del título */
-  grid-template-columns: repeat(3, 1fr);
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 0.5rem;
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
   padding: 1rem;
   background: linear-gradient(to bottom, #ffffff 0%, #cccccc 100%);
   box-shadow: 6px 6px 0 6px #666, 10px 10px 10px #000;
-  border-radius: 1rem; /* Bordes redondeados */
+  border-radius: 1rem;
 }
 
 .titulo h1 {
-  font-size: 3rem; /* Tamaño grande para el título */
+  font-size: 3rem;
   font-weight: 600;
   color: var(--rojo);
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra para dar profundidad */
-  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .titulo ul {
-  list-style: none; /* Quitar los puntos de la lista */
-  padding: 0; /* Quitar padding */
+  list-style: none;
+  padding: 0;
 }
 
 .titulo ul li p {
@@ -53,7 +53,7 @@ body {
   margin: 0;
 }
 
-/* Estilos para el teclado */
+/* El teclado se organiza como una cuadrícula de 3 columnas por 3 filas. */
 .teclado {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -64,7 +64,7 @@ body {
   border-radius: 1.5rem;
 }
 
-/* Estilos para cada tecla */
+/* Cada botón representa una tecla del instrumento. */
 .tecla {
   background-color: var(--blanco);
   border-radius: 30px;
@@ -78,16 +78,16 @@ body {
   font-weight: bold;
   height: 6rem;
   width: 6rem;
-  transition: transform 0.2s, box-shadow 0.2s; /* Transiciones suaves */
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
-/* Efecto de hover para las teclas */
+/* Feedback visual cuando el cursor pasa por encima de una tecla. */
 .tecla:hover {
-  transform: scale(1.05); /* Animación sutil al pasar el mouse */
+  transform: scale(1.05);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
 }
 
-/* Estilos para la tecla activa o cuando tiene la clase 'activa' */
+/* Estado activo: se aplica al hacer click, al tocar Enter/Space o al usar el teclado físico. */
 .tecla:active,
 .tecla.activa {
   background-color: var(--rojo);
@@ -96,26 +96,26 @@ body {
   color: var(--blanco);
 }
 
-/* Estilos cuando la tecla tiene el foco */
+/* El foco ayuda a navegar con teclado y muestra qué botón está seleccionado. */
 .tecla:focus {
-  outline: none; /* Eliminar el borde por defecto del foco */
+  outline: none;
   box-shadow: 0 0 0.5rem var(--luz), 0 0 1.5rem rgba(0, 0, 0, 0.3);
 }
 
-/* Estilos cuando la tecla activa tiene el foco */
+/* Combinación de foco y estado activo para conservar ambos efectos visuales. */
 .tecla:active:focus,
 .tecla.activa:focus {
   box-shadow: inset 0 0.25rem 0.5rem rgba(0, 0, 0, 0.3), 0 0 0.5rem var(--luz);
 }
 
-/* Media Queries para pantallas pequeñas (móviles) */
+/* Ajustes para pantallas pequeñas como tablets y celulares. */
 @media (max-width: 768px) {
   .titulo h1 {
-    font-size: 2.5rem; /* Reducir el tamaño del título en pantallas pequeñas */
+    font-size: 2.5rem;
   }
 
   .titulo ul li p {
-    font-size: 1rem; /* Ajustar tamaño de texto */
+    font-size: 1rem;
   }
 
   .teclado {
@@ -123,25 +123,25 @@ body {
   }
 
   .tecla {
-    font-size: 1.2rem; /* Reducir el tamaño de las teclas */
-    height: 5rem; /* Reducir el tamaño de las teclas */
-    width: 5rem; /* Reducir el tamaño de las teclas */
+    font-size: 1.2rem;
+    height: 5rem;
+    width: 5rem;
   }
 }
 
-/* Media Queries para pantallas más pequeñas (móviles) */
+/* Ajustes extra para celulares angostos. */
 @media (max-width: 480px) {
   .titulo h1 {
-    font-size: 2rem; /* Reducir aún más el tamaño del título */
+    font-size: 2rem;
   }
 
   .teclado {
-    grid-template-columns: repeat(3, 1fr); /* Mantener el número de columnas */
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .tecla {
-    font-size: 1rem; /* Reducir el tamaño de las teclas */
-    height: 4rem; /* Reducir aún más el tamaño de las teclas */
-    width: 4rem; /* Reducir aún más el tamaño de las teclas */
+    font-size: 1rem;
+    height: 4rem;
+    width: 4rem;
   }
 }

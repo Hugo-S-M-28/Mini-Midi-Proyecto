@@ -7,46 +7,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alura MIDI</title>
 
-    <!-- Fuentes de Google -->
+    <!-- Fuentes de Google para darle estilo al texto de la aplicación. -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
 
-    <!-- Icono de la página -->
+    <!-- Icono de la página que aparece en la pestaña del navegador. -->
     <link rel="icon" type="image/png" href="images/bateria.png">
 
-    <!-- Estilos CSS -->
+    <!-- Primero cargamos el reset y después los estilos propios del proyecto. -->
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/estilos.css">
 </head>
 
 <body>
-    <!-- Header con el título -->
-        <section class="titulo" id="MIDI">
-            <h1>MIDI</h1>
-            <ul>
-                <li>
-                    <p>Presiona los botones.</p>
-                </li>
-            </ul>
-        </section>
-
-    <!-- Sección del teclado con botones -->
-    <section class="teclado">
-        <button class="tecla tecla_pom">Pom</button>
-        <button class="tecla tecla_clap">Clap</button>
-        <button class="tecla tecla_tim">Tim</button>
-
-        <button class="tecla tecla_puff">Puff</button>
-        <button class="tecla tecla_splash">Splash</button>
-        <button class="tecla tecla_toim">Toim</button>
-
-        <button class="tecla tecla_psh">Psh</button>
-        <button class="tecla tecla_tic">Tic</button>
-        <button class="tecla tecla_tom">Tom</button>
+    <!-- Encabezado visual de la aplicación. -->
+    <section class="titulo" id="MIDI">
+        <h1>MIDI</h1>
+        <ul>
+            <li>
+                <p>Presiona los botones.</p>
+            </li>
+        </ul>
     </section>
 
-    <!-- Sonidos de las teclas -->
+    <!--
+        Teclado principal.
+        Cada botón conserva sus clases para el estilo visual, pero el sonido ya no depende
+        del orden de esas clases. El atributo data-sound guarda el nombre lógico del sonido
+        que JavaScript usará para encontrar el audio correcto.
+    -->
+    <section class="teclado">
+        <button class="tecla tecla_pom" data-sound="pom">Pom</button>
+        <button class="tecla tecla_clap" data-sound="clap">Clap</button>
+        <button class="tecla tecla_tim" data-sound="tim">Tim</button>
+
+        <button class="tecla tecla_puff" data-sound="puff">Puff</button>
+        <button class="tecla tecla_splash" data-sound="splash">Splash</button>
+        <button class="tecla tecla_toim" data-sound="toim">Toim</button>
+
+        <button class="tecla tecla_psh" data-sound="psh">Psh</button>
+        <button class="tecla tecla_tic" data-sound="tic">Tic</button>
+        <button class="tecla tecla_tom" data-sound="tom">Tom</button>
+    </section>
+
+    <!--
+        Audios disponibles.
+        Los IDs siguen el patrón sonido_tecla_ + nombre del data-sound. Por ejemplo:
+        data-sound="pom" se conecta con id="sonido_tecla_pom".
+    -->
     <audio src="sounds/keyq.wav" id="sonido_tecla_pom"></audio>
     <audio src="sounds/keye.wav" id="sonido_tecla_tim"></audio>
     <audio src="sounds/keya.wav" id="sonido_tecla_puff"></audio>
@@ -57,7 +66,7 @@
     <audio src="sounds/keyx.wav" id="sonido_tecla_tic"></audio>
     <audio src="sounds/keyc.wav" id="sonido_tecla_tom"></audio>
 
-    <!-- Script principal -->
+    <!-- Script principal con la lógica de clicks, teclado físico y estado visual. -->
     <script src="main.js"></script>
 </body>
 
